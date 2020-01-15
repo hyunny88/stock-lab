@@ -1,0 +1,6 @@
+**/conf/config.ini
+**/__pycache__/
+*.log
+**/node_modules/
+**/.vscode/
+**/build/
