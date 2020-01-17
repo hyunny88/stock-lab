@@ -70,11 +70,7 @@ class TestEbest(unittest.TestCase):
         #result1 = self.ebest.get_order_check("005930", order_no)
         #print(result1)
 
-    def test_order_check(self):
-        print(inspect.stack()[0][3])
-        result = self.ebest.order_check("005930", "29515")
-        assert result
-        print(result)
+
 
     def test_order_cancel(self):
         print(inspect.stack()[0][3])
@@ -109,6 +105,12 @@ class TestEbest(unittest.TestCase):
         result = self.ebest._execute_real("005930")
         print(result)
     """
+
+    def test_order_check(self):
+        print(inspect.stack()[0][3])
+        result = self.ebest.order_check("29515")
+        assert result
+        print(result)
 
     def test_get_theme_by_code(self):
         time.sleep(1)
@@ -167,7 +169,7 @@ class TestEbest(unittest.TestCase):
         result = self.ebest.get_account_stock_info()
         assert result is not None
         print(result)
-
+    """
 
     def tearDown(self):
         self.ebest.logout()

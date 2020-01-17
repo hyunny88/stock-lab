@@ -4,18 +4,15 @@ from stocklab.agent.ebest import EBest
 from stocklab.db_handler.mongodb_handler import MongoDBHandler
 
 mongodb = MongoDBHandler()
- 
+ebest = EBest("DEMO")
+ebest.login()
+  
 def collect_code_list():
-    ebest = EBest("DEMO")
-    ebest.login()
     result = ebest.get_code_list("ALL")
     mongodb.delete_items({}, "stocklab", "code_info")
     mongodb.insert_items(result, "stocklab", "code_info")
-    ebest.logout()
 
 def collect_stock_info():
-    ebest = EBest("DEMO")
-    ebest.login()
     code_list = mongodb.find_items({}, "stocklab", "code_info")
     target_code = set([item["단축코드"] for item in code_list])
     today = datetime.today().strftime("%Y%m%d")
@@ -28,7 +25,6 @@ def collect_stock_info():
         time.sleep(1)
         if len(result_price) > 0:
             mongodb.insert_items(result_price, "stocklab", "price_info")
-    ebest.logout()
 
 if __name__ == '__main__':
     collect_code_list()
