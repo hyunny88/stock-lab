@@ -92,7 +92,7 @@ class EBest:
         self.xa_session_client.Login(self.user, self.passwd, self.cert_passwd, 0, 0)
         while XASession.login_state == 0:
             pythoncom.PumpWaitingMessages()
- 
+
     def logout(self):
         XASession.login_state = 0
         self.xa_session_client.DisconnectServer()

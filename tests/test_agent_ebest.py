@@ -8,21 +8,19 @@ class TestEbest(unittest.TestCase):
         self.ebest = EBest("DEMO")
         self.ebest.login()
 
-    def tearDown(self):
-        self.ebest.logout()
-
-    def test_get_stock_price_by_code(self):
-        print(inspect.stack()[0][3])
-        result = self.ebest.get_stock_price_by_code("005930", "30")
-        assert result is not None
-        print(result)
-    """
     def test_get_current_call_price_by_code(self):
         print(inspect.stack()[0][3])
         result = self.ebest.get_current_call_price_by_code("005930")
         assert result
         print(result)
 
+
+    """
+    def test_get_stock_price_by_code(self):
+        print(inspect.stack()[0][3])
+        result = self.ebest.get_stock_price_by_code("005930", "30")
+        assert result is not None
+        print(result)
     def testLogin(self):
         print(inspect.stack()[0][3])
         self.ebest.login()
@@ -104,7 +102,6 @@ class TestEbest(unittest.TestCase):
         print(inspect.stack()[0][3])
         result = self.ebest._execute_real("005930")
         print(result)
-    """
 
     def test_order_check(self):
         print(inspect.stack()[0][3])
@@ -159,7 +156,6 @@ class TestEbest(unittest.TestCase):
         assert result is not None
         print(result)
 
-    """
     def test_get_account_info(self):
         result = self.ebest.get_account_info()
         assert result is not None

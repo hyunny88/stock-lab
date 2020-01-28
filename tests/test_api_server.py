@@ -34,7 +34,7 @@ class FlaskrTestCase(unittest.TestCase):
     def test_get_price(self):
         print(inspect.stack()[0][3])
         rv = self.app.get("/codes/002170/price")
-        assert rv.status_code == 201
+        assert rv.status_code == 200
 
     def test_get_price_with_parameter(self):
         print(inspect.stack()[0][3])
